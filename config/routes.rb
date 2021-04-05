@@ -2,11 +2,11 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :restaurants do
-        resources :foods, only: %i[index]
+        resources :foods, only: [:index]
       end
-      resources :line_foods, only: %i[index create]
-      put 'line_food_replace', to: 'line_foods#replace'
-      resources :orders, only: %i[index]
+      resources :line_foods, only: [:index, :create]
+      put 'line_foods/replace', to: 'line_foods#replace'
+      resources :orders, only: [:index]
     end
   end
 end
