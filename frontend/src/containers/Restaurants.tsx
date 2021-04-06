@@ -92,6 +92,7 @@ export const Restaurants: FC = () => {
             </>
           :
             state.restaurantsList.map((item, index) =>
+              (index > 2) &&
               <Link to={`/restaurants/${item.id}/foods`} key={index} style={{ textDecoration: 'none' }}>
                 <RestaurantsContentWrapper>
                   <RestaurantsImageNode src={RestaurantImage} />
@@ -102,10 +103,6 @@ export const Restaurants: FC = () => {
             )
         }
       </RestaurantsContentsList>
-      {state.restaurantsList.map((restaurant: Restaurant) =>
-        <div key={restaurant.id}>
-          {restaurant.name} / 送料{restaurant.fee}円 / 配送時間{restaurant.time_required}分
-        </div>)}
     </>
   )
 }
